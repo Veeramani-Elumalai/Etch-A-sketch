@@ -1,22 +1,31 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #000000;
+    font-family: Arial, sans-serif;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(16, 30px);
-    grid-template-rows: repeat(16, 30px);
+    display: flex;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 960px;
+    border: 1px solid #ccc;
 }
 
-
 .grid-item {
-    width: 30px;
-    height: 30px;
-    background-color: #000000;
     box-sizing: border-box;
-  }
-  .grid-item:hover {
-    background-color: #000; /* or any color you prefer */
-  }
+    background-color: rgb(0, 0, 0);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
