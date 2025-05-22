@@ -7,16 +7,18 @@ body {
 }
 
 .grid-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid; 
     width: 960px;
     height: 960px;
-    border: 1px solid #ccc;
+    background-color: black;
+    border: 2px solid orange;
 }
 
 .grid-item {
+    background-color: #000000;
+    aspect-ratio: 1 / 1;
+    width: 100%;         
     box-sizing: border-box;
-    background-color: rgb(0, 0, 0);
 }
 
 .button-container {

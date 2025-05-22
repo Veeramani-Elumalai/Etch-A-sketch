@@ -4,33 +4,28 @@ const totalSize = 960;
 
 function createGrid(size) {
     container.innerHTML = ""; // Clear existing grid
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    const totalSize = 960;
     const squareSize = totalSize / size;
 
     for (let i = 0; i < size * size; i++) {
         const div = document.createElement("div");
         div.classList.add("grid-item");
-        div.style.width = `${squareSize}px`;
-        div.style.height = `${squareSize}px`;
-        div.dataset.opacity = 0;
+
+        const colors = ["rgb(255,0,0)", "rgb(0,255,0)", "rgb(0,0,255)"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        div.dataset.color = randomColor;
 
         div.addEventListener("mouseover", () => {
-            // Option 1: Random RGB color
-            let r = Math.floor(Math.random() * 256);
-            let g = Math.floor(Math.random() * 256);
-            let b = Math.floor(Math.random() * 256);
-
-            // Option 2: Progressive darkening
-            let opacity = parseFloat(div.dataset.opacity);
-            if (opacity < 1) {
-                opacity += 0.1;
-                div.dataset.opacity = opacity.toFixed(1);
-            }
-            div.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${div.dataset.opacity})`;
+            div.style.backgroundColor = div.dataset.color;
         });
 
         container.appendChild(div);
     }
 }
+
 
 function resetGrid() {
     let newSize = prompt("Enter number of squares per side (max 100):", 16);
